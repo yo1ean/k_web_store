@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Item Details</h2>
+        <p>Name: {{ item.name }}</p>
+        <p>Price: ${{ item.price }}</p>
+        <p>Size: {{ item.get_size_display }}</p>
+        <img src="{{ item.image.url }}" alt="{{ item.name }} Image" width="200">
+{% endblock %}
