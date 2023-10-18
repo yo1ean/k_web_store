@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+</head>
+<link href="{% static 'css/base.css' %}" rel="stylesheet">
+<body>
+    <header>
+        <h1>Admin Panel</h1>
+        <div class="user-info">
+            <h2>Welcome, {{ user.first_name }} {{ user.last_name }}</h2>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'shop:home' %}">Homepage</a></li>
+            <li><a href="{% url 'add_item' %}">Add Item</a></li>
+            <li><a href="#">Orders</a></li>
+        </ul>
+    </nav>
+    <main>
+    </main>
+</body>
+</html>
