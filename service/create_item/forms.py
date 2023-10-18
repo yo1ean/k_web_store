@@ -1,9 +1,17 @@
 from django import forms
-from .models import Item
+from django.utils.text import slugify
+
+from .models import Product
 
 
-class ItemForm(forms.ModelForm):
+class ProductForm(forms.ModelForm):
     class Meta:
-        model = Item
-        fields = ['name', 'price', 'image', 'size']
+        model = Product
+        fields = ['name', 'category', 'price', 'image', 'size', 'description']
 
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        instance.slug = slugify(instance.name)
+        if commit:
+            instance.save()
+        return instance

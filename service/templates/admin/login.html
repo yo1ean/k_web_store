@@ -1,13 +1,16 @@
+{% load static %}
 <html>
 <head>
     <title>Login</title>
 </head>
 <body>
+    <link href='{% static "css/base.css" %}' rel="stylesheet">
     <h2>Login</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.username.label_tag }} {{ form.username }}
         {{ form.password.label_tag }} {{ form.password }}
+        {{ form.errors }}
         <button type="submit">Login</button>
     </form>
 </body>
